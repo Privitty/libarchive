@@ -42,6 +42,23 @@ The following files in the top-level directory are used by the 'configure' scrip
 * `Makefile.am`, `aclocal.m4`, `configure.ac` - used to build this distribution, only needed by maintainers
 * `Makefile.in`, `config.h.in` - templates used by configure script
 
+## Build for Android (arm64-v8a, x86_64)
+
+Compile the source code:
+
+```
+$ ./build/autogen.sh
+
+# For arm64-v8a
+$ ./configure --host=aarch64-linux-android  CC=/Applications/AndroidNDK12077973.app/Contents/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android24-clang --without-xml2 --without-zlib --without-bz2lib --without-libb2 --without-iconv --without-lz4 --without-zstd --without-lzma --without-cng --without-openssl CPPFLAGS="-I$(pwd)/contrib/android/include"
+
+# For x86_64
+$ ./configure --host=x86_64-linux-android  CC=/Applications/AndroidNDK12077973.app/Contents/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android24-clang --without-xml2 --without-zlib --without-bz2lib --without-libb2 --without-iconv --without-lz4 --without-zstd --without-lzma --without-cng --without-openssl CPPFLAGS="-I$(pwd)/contrib/android/include"
+
+# Finally make to build the lib for target
+$ make 
+```
+
 ## Documentation
 
 In addition to the informational articles and documentation
