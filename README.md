@@ -59,6 +59,18 @@ $ ./configure --host=x86_64-linux-android  CC=/Applications/AndroidNDK12077973.a
 $ make 
 ```
 
+# Building for iOS
+
+Compile the source code:
+
+```
+$ ./build/autogen.sh
+
+$ ./configure   --host=aarch64-apple-darwin   --enable-static --without-xml2 --without-zlib --without-bz2lib --without-libb2 --without-iconv --without-lz4 --without-zstd --without-lzma --without-cng --without-openssl CC="xcrun --sdk iphoneos clang"
+
+$ make 
+```
+
 ## Documentation
 
 In addition to the informational articles and documentation
